@@ -6,7 +6,7 @@ import History from './pages/History';
 import About from './pages/About';
 import Login from './pages/Login';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
 export default function App() {
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')) || null);
