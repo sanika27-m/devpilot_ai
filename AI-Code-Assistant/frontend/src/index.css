@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Global Background styling mapping active classes */
+body.dark {
+  background-color: #020617; /* Cyberpunk Slate-950 */
+  color: #f3f4f6;
+}
+
+body:not(.dark) {
+  background-color: #f8fafc; /* Slate-50 */
+  color: #0f172a;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+/* Glassmorphism premium config */
+.glass-panel {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.35); /* Soft transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Extra thin transparent border */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.06);
+}
+
+.dark .glass-panel-hover:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.5);
+  transform: translateY(-4px); /* Extra hover lift */
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(15, 23, 42, 0.15);
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-4px);
+}
+
+.glass-input {
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.dark .glass-input {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f3f4f6;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+}
+
+.dark .glass-input:focus {
+  border-color: #06b6d4; /* cyan-500 */
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.glass-input:focus {
+  border-color: #6366f1; /* indigo-500 */
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.code-font {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Animated floating neon background elements */
+.bg-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  animation: float 25s ease-in-out infinite alternate;
+}
+
+.dark .bg-glow-orb {
+  opacity: 0.12;
+}
+
+.bg-glow-orb {
+  opacity: 0.05;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, -60px) scale(1.15);
+  }
+  100% {
+    transform: translate(-40px, 40px) scale(0.9);
+  }
+}
+
+/* Gentle floating animations for decorative background items */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.4deg);
+  }
+}
+
+.animate-float-1 {
+  animation: float-gentle 7s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-reverse 9s ease-in-out infinite 0.5s;
+}
+
+.animate-float-3 {
+  animation: float-gentle 8s ease-in-out infinite 1.2s;
+}
+
+.animate-float-4 {
+  animation: float-reverse 10s ease-in-out infinite 1.8s;
+}

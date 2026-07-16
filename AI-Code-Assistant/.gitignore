@@ -1,0 +1,43 @@
+# Monorepo Root GitIgnore
+
+# API Keys and Sensitive Configs
+.env
+.env.local
+.env.*
+*.env
+.secret
+.secrets
+
+# Node Dependencies and Builds
+node_modules/
+dist/
+dist-ssr/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python Dependencies and Caches
+venv/
+.venv/
+env/
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local SQLite Database Files
+database/*.db
+*.db
+*.sqlite
+
+# IDE Settings and System Files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.sln
+*.swp
+Thumbs.db
